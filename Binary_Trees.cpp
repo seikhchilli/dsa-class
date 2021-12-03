@@ -25,7 +25,15 @@ void insertBst(node **root, int val){
     *root = temp;
     return;
   }
+
   node *current = *root;
+  if(val < current->data){
+    insertBst(&(current->leftChild), val);
+  }
+  else{
+    insertBst(&(current->rightChild), val);
+  }
+  /*node *current = *root;
   node *parent;
   while(1){
     parent = current;
@@ -44,7 +52,7 @@ void insertBst(node **root, int val){
       }
     }
   }
-
+*/
 }
 
 //inorder transeversal:
