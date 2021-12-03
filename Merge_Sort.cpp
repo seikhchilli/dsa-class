@@ -47,14 +47,27 @@ void merge_sort(int arr[], int l, int r){
 
 
 int main(){
-  int n = 10;
-  int arr[n] = {3,  4,  2,  1,  7,  5,  8,  9,  0,  6};
+  int n;
+  cout<<"Enter Size of array: ";
+  cin>>n;
+  int arr[n];
+  cout<<"Enter elements of array: "<<endl;
+  for(int i = 0; i < n; i++){
+    cin>>arr[i];
+  }
+
+  cout<<"\n\nUnsorted Array:  ";
+  for(auto i : arr){
+    cout<<i<<" ";
+  }
 
   merge_sort(arr, 0, n);
 
+  cout<<"\n\nSorted array:  ";
   for(int i = 0; i < n; i++){
     cout<<arr[i]<<" ";
   }
+  cout<<endl<<endl;
 
 
 }
