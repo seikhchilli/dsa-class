@@ -26,6 +26,6 @@ int main(){
   cout<<"Enter second number: ";
   cin>>n;
 
-  cout<<"GCD of m and n: "<<gcd(m, n)<<endl;
+  cout<<"GCD of "<<m<<" and "<<n<<" : "<<gcd(m, n)<<endl;
   return 0;
 }
