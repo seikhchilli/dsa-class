@@ -1,13 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//swapping greater value to m and lesser value to n
-void swap(int *m, int *n){
-  int temp = *m;
-  *m = *n;
-  *n = temp;
-}
-
 //GCD function
 /*
 * Euclid's Algorithm is based on repeated application of equality
@@ -32,8 +25,6 @@ int main(){
   cin>>m;
   cout<<"Enter second number: ";
   cin>>n;
-
-  swap(&m, &n);
 
   cout<<"GCD of m and n: "<<gcd(m, n)<<endl;
   return 0;
