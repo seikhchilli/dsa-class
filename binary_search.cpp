@@ -1,22 +1,22 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int binarySearch(int arr[], int n, int first, int last, int search){
-  if(last >= first){
-    int mid = first + (last - first)/2;
-    if((arr[mid] == search || mid == 0) && (arr[mid] == search || mid == n-1)){
+int binarySearch(vector<int> v, int search){
+  int low = 0, high = v.size() - 1, mid;
+
+  while(high >= low){
+    mid = low + (high - low)/2;
+    if(search == v[mid]){
       return mid;
     }
-    else if(arr[mid] > search){
-      binarySearch(arr, n, first, mid-1, search);
+    else if(v[mid] > search){
+      high = mid - 1;
     }
     else{
-      binarySearch(arr, n, mid+1, last, search);
+      low = mid + 1;
     }
   }
-  else{
-    return -1;
-  }
+  return -1;
 }
 
 int main(){
@@ -25,23 +25,19 @@ int main(){
   cin>>n;
   cout<<"\nEnter elements of array: "<<endl;
 
-  int *arr = new int[n];
-
+  vector<int> v;
+  int x;
   for(int i = 0; i < n; i++){
-    cin>>*(arr+i);
+    cin>>x;
+    v.push_back(x);
   }
 
-  cout<<"Your array is: ";
-  for(int i = 0; i < n; i++){
-    cout<<*(arr+i)<<" ";
-  }
-  cout<<endl;
 
   int search;
   cout<<"\nEnter the number to be searched: ";
   cin>>search;
 
-  int searchVal = binarySearch(arr, n, 0, n-1, search);
+  int searchVal = binarySearch(v, search);
 
   if(searchVal == -1){
     cout<<"\nNumber not found."<<endl;
@@ -49,7 +45,6 @@ int main(){
   else{
     cout<<"\nNumber found at index position "<<searchVal<<endl;
   }
-  delete arr;
   return 0;
 
 }
