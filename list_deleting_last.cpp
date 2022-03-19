@@ -43,7 +43,6 @@ void del_end_el(node* start){
     return;
   }
   if(start->next == NULL){
-    cout<<"run"<<endl;
     free(start);
     start = NULL;
 
