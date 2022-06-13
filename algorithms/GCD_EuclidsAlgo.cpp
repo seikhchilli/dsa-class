@@ -17,6 +17,18 @@ int gcd(int m, int n){
   return gcd(n, m%n);
 }
 
+int gcd_without_recursion(int m, int n){
+  int rem;
+  while(n > 0){
+    rem = m % n;
+    m = n;
+    n = rem;
+  }
+  return m;
+}
+
+//LCM of (m, n) = (m * n) / HCF(m, n);
+
 
 
 int main(){
@@ -26,6 +38,6 @@ int main(){
   cout<<"Enter second number: ";
   cin>>n;
 
-  cout<<"GCD of "<<m<<" and "<<n<<" : "<<gcd(m, n)<<endl;
+  cout<<"GCD of "<<m<<" and "<<n<<" : "<<gcd_without_recursion(m, n)<<endl;
   return 0;
 }
